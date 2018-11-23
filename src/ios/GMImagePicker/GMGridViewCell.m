@@ -68,8 +68,8 @@ static UIColor *disabledColor;
             _imageView.contentMode = UIViewContentModeScaleAspectFill;
         }*/
         _imageView.clipsToBounds = YES;
-        _imageView.translatesAutoresizingMaskIntoConstraints = NO;
-        _imageView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+//        _imageView.translatesAutoresizingMaskIntoConstraints = NO;
+//        _imageView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         [self addSubview:_imageView];
         
         
@@ -120,8 +120,8 @@ static UIColor *disabledColor;
         _selectedButton.contentMode = UIViewContentModeTopRight;
         _selectedButton.adjustsImageWhenHighlighted = NO;
         [_selectedButton setImage:nil forState:UIControlStateNormal];
-        _selectedButton.translatesAutoresizingMaskIntoConstraints = NO;
-        _selectedButton.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+//        _selectedButton.translatesAutoresizingMaskIntoConstraints = NO;
+//        _selectedButton.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         [_selectedButton setImage:[UIImage imageNamed:@"GMSelected"] forState:UIControlStateSelected];
         _selectedButton.hidden = NO;
         _selectedButton.userInteractionEnabled = NO;

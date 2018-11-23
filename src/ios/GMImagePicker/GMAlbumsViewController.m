@@ -60,6 +60,8 @@ static NSString * const CollectionCellReuseIdentifier = @"CollectionCell";
 {
     [super viewDidLoad];
     
+
+    
     //Navigation bar customization_
     if(self.picker.customNavigationBarPrompt)
     {
@@ -262,7 +264,7 @@ static NSString * const CollectionCellReuseIdentifier = @"CollectionCell";
     cell.tag = currentTag;
 
     //Set the label
-    cell.textLabel.text = (self.collectionsFetchResultsTitles[indexPath.section])[indexPath.row];
+    cell.titleLabel.text = (self.collectionsFetchResultsTitles[indexPath.section])[indexPath.row];
     
     //Retrieve the pre-fetched assets for this album:
     PHFetchResult *assetsFetchResult = (self.collectionsFetchResultsAssets[indexPath.section])[indexPath.row];
@@ -270,7 +272,7 @@ static NSString * const CollectionCellReuseIdentifier = @"CollectionCell";
     //Display the number of assets
     if(self.picker.displayAlbumsNumberOfAssets)
     {
-        cell.detailTextLabel.text = [self tableCellSubtitle:assetsFetchResult];
+        cell.infoLabel.text = [self tableCellSubtitle:assetsFetchResult];
     }
     
     //Set the 3 images (if exists):
@@ -280,6 +282,9 @@ static NSString * const CollectionCellReuseIdentifier = @"CollectionCell";
         
         //Compute the thumbnail pixel size:
         CGSize tableCellThumbnailSize1 = CGSizeMake(kAlbumThumbnailSize1.width*scale, kAlbumThumbnailSize1.height*scale);
+        
+        
+
         PHAsset *asset = assetsFetchResult[0];
         [cell setVideoLayout:(asset.mediaType==PHAssetMediaTypeVideo)];
         [self.imageManager requestImageForAsset:asset

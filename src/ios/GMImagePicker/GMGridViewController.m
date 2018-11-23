@@ -113,8 +113,11 @@ NSString * const GMGridViewCellIdentifier = @"GMGridViewCellIdentifier";
     {
         //Compute the thumbnail pixel size:
         CGFloat scale = [UIScreen mainScreen].scale;
-        //NSLog(@"This is @%fx scale device", scale);
+        NSLog(@"This is @%fx scale device", scale);
         AssetGridThumbnailSize = CGSizeMake(layout.itemSize.width * scale, layout.itemSize.height * scale);
+        
+//        AssetGridThumbnailSize = CGSizeMake(layout.itemSize.width , layout.itemSize.height );
+
         
         self.collectionView.allowsMultipleSelection = YES;
         
@@ -122,6 +125,11 @@ NSString * const GMGridViewCellIdentifier = @"GMGridViewCellIdentifier";
                 forCellWithReuseIdentifier:GMGridViewCellIdentifier];
         
         self.preferredContentSize = kPopoverContentSize;
+        
+//        self.preferredContentSize = CGSizeMake(screenWidth, screenHeight);
+
+        
+        
     }
     
     ///
@@ -138,6 +146,7 @@ NSString * const GMGridViewCellIdentifier = @"GMGridViewCellIdentifier";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     [self setupViews];
     
     //Navigation bar customization_
@@ -150,6 +159,8 @@ NSString * const GMGridViewCellIdentifier = @"GMGridViewCellIdentifier";
     [self resetCachedAssets];
     [[PHPhotoLibrary sharedPhotoLibrary] registerChangeObserver:self];
     
+   
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -158,6 +169,7 @@ NSString * const GMGridViewCellIdentifier = @"GMGridViewCellIdentifier";
     
     [self setupButtons];
     [self setupToolbar];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -188,6 +200,9 @@ NSString * const GMGridViewCellIdentifier = @"GMGridViewCellIdentifier";
     //Update the AssetGridThumbnailSize:
     CGFloat scale = [UIScreen mainScreen].scale;
     AssetGridThumbnailSize = CGSizeMake(layout.itemSize.width * scale, layout.itemSize.height * scale);
+    
+//    AssetGridThumbnailSize = CGSizeMake(layout.itemSize.width , layout.itemSize.height);
+
     
     [self resetCachedAssets];
     //This is optional. Reload visible thumbnails:
